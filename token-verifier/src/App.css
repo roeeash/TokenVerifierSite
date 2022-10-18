@@ -1,0 +1,91 @@
+h1 {
+  color: white;
+  position: center;
+  font-family: 'Ruda', sans-serif;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+}
+
+body {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+.form-box{
+  width: 380px;
+  height:400px;
+  position: relative;
+  background: rgba(0,0,0,0.8);
+  margin:12% auto;
+  padding: 50px 0;
+  color:aliceblue;
+  box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
+}
+
+.input-box{
+  margin: 31px auto;
+  width: 80%;
+  border-bottom: 1px solid white;
+  padding-top: 10px;
+  padding-bottom: 5px;
+ }
+ 
+ .input-box input{
+ width: 90%;
+ border:none;
+ outline:none;
+ background: transparent;
+ color:white;
+ 
+ }
+
+ .btn {
+  text-decoration: none !important;
+  outline: none !important;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+/*  Log & Registration Forms */
+.shaped-form-extended {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.shaped-form {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+.shaped-form-extended .terms {
+  font-size: 13px;
+}
+
+
+.shaped-form-extended h3 {
+  font-size: 24px;
+}
+
+.shaped-form-extended .form-group {
+  margin-bottom: 20px;
+}
