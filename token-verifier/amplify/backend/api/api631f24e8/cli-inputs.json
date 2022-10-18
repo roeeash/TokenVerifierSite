@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/customers/{customerId}": {
+      "name": "/customers/{customerId}",
+      "lambdaFunction": "tokenverifierafa91d5d",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

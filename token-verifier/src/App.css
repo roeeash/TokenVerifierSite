@@ -7,6 +7,11 @@ h1 {
 h2 {
   font-family: 'Raleway', sans-serif;
   font-size: 22px;
+  -webkit-text-fill-color:transparent;
+}
+
+.gradient-text {
+  background-image: linear-gradient(45deg, #fdfd0c, #f10b48);
 }
 
 body {

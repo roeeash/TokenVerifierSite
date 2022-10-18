@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tokenverifier-dev-163522-authRole",
+      "UnauthRoleArn": "arn:aws:iam::089054113409:role/amplify-tokenverifier-dev-163522-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::089054113409:role/amplify-tokenverifier-dev-163522-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tokenverifier-dev-163522-deployment",
+      "UnauthRoleName": "amplify-tokenverifier-dev-163522-unauthRole",
+      "StackName": "amplify-tokenverifier-dev-163522",
+      "StackId": "arn:aws:cloudformation:us-east-1:089054113409:stack/amplify-tokenverifier-dev-163522/b93a5df0-4ee9-11ed-972f-12e03549ff9f",
+      "AmplifyAppId": "d3bp2bbqhl3n5r"
+    },
+    "categories": {
+      "function": {
+        "tokenverifierafa91d5d": {
+          "deploymentBucketName": "amplify-tokenverifier-dev-163522-deployment",
+          "s3Key": "amplify-builds/tokenverifierafa91d5d-5441664f4e4c75737253-build.zip"
+        }
+      },
+      "api": {
+        "api631f24e8": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3bp2bbqhl3n5r",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

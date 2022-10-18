@@ -115,7 +115,7 @@ class App extends React.Component{
             />
 
           
-          <h1>Hello</h1>
+          <h1 className = "gradient-text">Hello</h1>
           <Particles  className='particles'
           options ={particlesOptions}></Particles>
           
