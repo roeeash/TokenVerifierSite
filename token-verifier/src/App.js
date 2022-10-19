@@ -1,39 +1,28 @@
 import React from 'react';
 import './App.css';
-import Particles from "react-tsparticles";
 import LoginForm from './components/LoginForm.component';
 import { JSEncrypt } from "jsencrypt";
+import {Amplify,  API } from 'aws-amplify';
+import awsconfig from "./aws-exports";
 
-//partical options
-const particlesOptions = {
-  particles: {
-    color: {
-      value: "#FFFF00"
-    },
-    line_linked: {
-      color: {
-        value: "#000000"
-      }
-    },
-    number: {
-      value: 50
-    },
-    size: {
-      value: 3
-    }
-    }
-};
+const myAPI = "api631f24e8";
+const path = '/customers'; 
+
+Amplify.configure(awsconfig);
+
 
 //inital state of the app
 const initialState = {
   isSignedIn: false,
   isValidated: false,
   publicKey:'',
-  privateKey :''
+  privateKey :'',
+  customers :[]
 }
 
 // Start our encryptor.
 const encrypt = new JSEncrypt();
+
 
 class App extends React.Component{
     //constructor, initallizg to inital state
@@ -100,24 +89,34 @@ class App extends React.Component{
     }
   }
 
-    render (){
+
+  getCustomer = () => {
+    var customerId = document.getElementById("customer-id").value;
+    API.get(myAPI, path + "/" + customerId)
+       .then(response => {
+         console.log(response);
+         this.setState(prevState => ({
+          customers: [...prevState.customers, response]
+      }));
+      });
+
+  }
+
+
+
+  render (){
         return(
         <div className= "main">
           {
             this.state.isSignedIn ? 
 
 
-            <div>
-               <div>
-        <Particles 
-              className='particles'
-              params={particlesOptions}
-            />
-
+          <div>
+          <div>
+      
           
           <h1 className = "gradient-text">Hello</h1>
-          <Particles  className='particles'
-          options ={particlesOptions}></Particles>
+        
           
           <div>
           <h1>Key generation : </h1>
@@ -133,6 +132,7 @@ class App extends React.Component{
             this.state.isValidated
               
             ?
+            
             
             <div className="form-box">
             <div>
@@ -157,9 +157,19 @@ class App extends React.Component{
           <button className="btn" onClick={() =>window.open( 'http://www.google.com') }>
             Go to site!
           </button>
-        </div>    
+        </div>
+        <br/>
+
+        <div>
+            <input type="text" id="customer-id" placeholder="customer id"></input>
+            <button className="btn" onClick={this.getCustomer}>
+            Get Customer!
+          </button>
+          </div>
+
         </div>
         </div>
+      
 
         :
         <div  className="form-box">
