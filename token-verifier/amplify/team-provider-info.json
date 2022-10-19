@@ -15,7 +15,7 @@
       "function": {
         "tokenverifierafa91d5d": {
           "deploymentBucketName": "amplify-tokenverifier-dev-163522-deployment",
-          "s3Key": "amplify-builds/tokenverifierafa91d5d-5441664f4e4c75737253-build.zip"
+          "s3Key": "amplify-builds/tokenverifierafa91d5d-524b69734f6453325a6f-build.zip"
         }
       },
       "api": {

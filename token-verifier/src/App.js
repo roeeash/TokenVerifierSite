@@ -170,7 +170,7 @@ class App extends React.Component{
         </button>
         </div>
 
-        <div id ="userOutput">?</div>
+        <div id ="userOutput"></div>
       </div>
 
         }
