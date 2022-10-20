@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm.component';
+import { FaLock } from 'react-icons/fa';
 import { JSEncrypt } from "jsencrypt";
 import {Amplify,  API } from 'aws-amplify';
 import awsconfig from "./aws-exports";
@@ -112,7 +113,10 @@ class App extends React.Component{
   render (){
         return(
         <div className= "main">
-            <h1 className = "gradient-text">Token Verifier</h1>
+            <div className = "gradient-text">
+            <FaLock size={'70px'}/>
+            <h1>Token Verifier</h1>
+            </div>
 
           {
             this.state.isSignedIn ? 
