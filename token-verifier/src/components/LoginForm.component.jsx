@@ -4,8 +4,7 @@ import { FaEnvelope,FaEye } from "react-icons/fa";
 //initial state of the login form
 const initialState = {
     email:'',
-    message: '',
-    error:false
+    isValidEmail: false
 }
 
 
@@ -16,9 +15,6 @@ class LoginForm extends React.Component{
         super();
         this.state = initialState;
     }
-    isValidEmail = () => {
-        return /\S+@\S+\.\S+/.test(this.email);
-    }
 
     render(){
 	return (
@@ -28,15 +24,23 @@ class LoginForm extends React.Component{
             <FaEnvelope/>
             <input type="email" spellcheck="false" 
             placeholder="Email ID" id="email-field"
-            onChange={e => this.setState({email:e.target.value})}></input>
-            <div id="email-error">
-            <input
-            id="message"
-            name="message"
-            value={this.state.message}
-            />
+            onChange={e => 
+            {
+                if(/\S+@\S+\.\S+/.test(e.target.value)){
+                    this.setState({isValidEmail:true, email:e.target.value});
+                }
+                else{
+                    this.setState({isValidEmail:false, email:e.target.value});
+                }
 
-            {this.state.error && <h2 style={{color: 'red'}}>{this.state.error}</h2>}
+            }
+            }></input>
+            <div id="email-error">
+                {
+                    !this.state.isValidEmail && 
+                    <span style={{display: (this.state.email !== "") ? 'block' : 'none',
+                    color:"red"}}>Email is invalid!</span>
+                }
          </div>
         </div>
 

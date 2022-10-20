@@ -17,6 +17,7 @@ const initialState = {
   isValidated: false,
   publicKey:'',
   privateKey :'',
+  customerId:'',
   customers :[]
 }
 
@@ -87,19 +88,23 @@ class App extends React.Component{
     else{
       this.setState({isValidated:true});
     }
-  }
+  } 
 
 
   getCustomer = () => {
-    var customerId = document.getElementById("customer-id").value;
-    API.get(myAPI, path + "/" + customerId)
+    API.get(myAPI, path + "/" + this.state.customerId)
        .then(response => {
          console.log(response);
          this.setState(prevState => ({
           customers: [...prevState.customers, response]
       }));
       });
+  }
 
+  deleteCustomer = (customer) => {
+    const temp = this.state.customers.filter(item => 
+      item !== customer);
+    this.setState({customers:temp});
   }
 
 
@@ -107,6 +112,8 @@ class App extends React.Component{
   render (){
         return(
         <div className= "main">
+            <h1 className = "gradient-text">Token Verifier</h1>
+
           {
             this.state.isSignedIn ? 
 
@@ -114,8 +121,6 @@ class App extends React.Component{
           <div>
           <div>
       
-          
-          <h1 className = "gradient-text">Hello</h1>
         
           
           <div>
@@ -161,11 +166,26 @@ class App extends React.Component{
         <br/>
 
         <div>
-            <input type="text" id="customer-id" placeholder="customer id"></input>
+            <input type="text" id="customer-id" placeholder="customer id"
+             onChange={e => this.setState({customerId:e.target.value})}></input>
+
             <button className="btn" onClick={this.getCustomer}>
             Get Customer!
           </button>
+        
           </div>
+
+          <div className="customer-list" >
+          {
+            this.state.customers.map(customer => {
+              return <div style={{display:'flex', justifyContent:'space-between'}}>
+                <div>{customer.customerName}</div>
+                <button onClick={() => this.deleteCustomer(customer)}> Delete</button>
+              </div>
+            })
+          }
+          </div>
+          
 
         </div>
         </div>

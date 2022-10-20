@@ -30,6 +30,7 @@ body {
   padding: 50px 0;
   color:aliceblue;
   text-align: center;
+  text-shadow: 1px 0.5px 1px rgba(239, 229, 229,0.5px);
   box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
 }
 
@@ -94,4 +95,11 @@ body {
 
 .shaped-form-extended .form-group {
   margin-bottom: 20px;
+}
+
+.customer-list{
+  background-color: blue;
+  border: solid;
+  border-radius: 5px;
+
 }
