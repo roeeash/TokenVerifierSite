@@ -4,6 +4,7 @@ import { FaEnvelope,FaEye } from "react-icons/fa";
 //initial state of the login form
 const initialState = {
     email:'',
+    isPasswordShown:false,
     isValidEmail: false
 }
 
@@ -14,6 +15,11 @@ class LoginForm extends React.Component{
     constructor(){
         super();
         this.state = initialState;
+    }
+
+    changePasswordType(){
+    //change password type
+    this.setState({isPasswordShown:(!this.state.isPasswordShown)});
     }
 
     render(){
@@ -45,8 +51,8 @@ class LoginForm extends React.Component{
         </div>
 
         <div class="input-box">
-            <FaEye/>
-            <input type="password" placeholder="Password" id="myInput"></input>
+            <FaEye onClick={this.changePasswordType.bind(this)}/>
+            <input type={this.state.isPasswordShown ? "text" : "password"}  placeholder="Password"></input>
         </div>
 			
 		</div>
