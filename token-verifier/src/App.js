@@ -175,10 +175,12 @@ class App extends React.Component{
         <div  className="form-box">
         <div className="input-box">
         <input type="text" id ="userKey" placeholder="enter your private key"></input>
+        </div>
+        <div>
         <button className="btn" onClick={this.validateIdentity}>
         validate user identity
         </button>
-        </div>
+       </div>
 
         <div id ="userOutput"></div>
       </div>

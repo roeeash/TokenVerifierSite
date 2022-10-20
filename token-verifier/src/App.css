@@ -17,8 +17,9 @@ body {
   background-color: #282c34;
   color: white;
   padding: 40px;
-  font-family: Arial;
+  font-family: Arial , sans-serif;
   text-align: center;
+  text-shadow: 2px 1px 2px black;
 }
 .form-box{
   width: 380px;
@@ -28,6 +29,7 @@ body {
   margin:12% auto;
   padding: 50px 0;
   color:aliceblue;
+  text-align: center;
   box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
 }
 
