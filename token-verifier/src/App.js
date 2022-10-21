@@ -163,14 +163,14 @@ class App extends React.Component{
         </div>
 
         <div>
-          <button className="btn" onClick={() =>window.open( 'http://www.google.com') }>
+          <button className="btn" onClick={() =>window.open( 'https://crypto.com/') }>
             Go to site!
           </button>
         </div>
         <br/>
 
         <div>
-            <input type="text" id="customer-id" placeholder="customer id"
+            <input type="text" id="customer-id" placeholder="customer id"  maxlength="10"
              onChange={e => this.setState({customerId:e.target.value})}></input>
 
             <button className="btn" onClick={this.getCustomer}>
@@ -182,7 +182,9 @@ class App extends React.Component{
           <div className="customer-list" >
           {
             this.state.customers.map(customer => {
-              return <div style={{display:'flex', justifyContent:'space-between'}}>
+              return <div style={{display:'flex',
+              justifyContent:'space-between'}}>
+                
                 <div>{customer.customerName}</div>
                 <button onClick={() => this.deleteCustomer(customer)}> Delete</button>
               </div>

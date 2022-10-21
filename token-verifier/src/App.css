@@ -6,11 +6,11 @@ h1 {
 
 h2 {
   font-family: 'Raleway', sans-serif;
-  font-size: 22px;
+  font-size: vw;
 }
 
 .gradient-text {
-  background-image: linear-gradient(45deg, #fdfd0c, #f10b48);
+  background-image: linear-gradient(45deg, grey,rgb(255, 153, 0) );
   display:flex;
 }
 
@@ -72,35 +72,14 @@ body {
 }
 
 
-/*  Log & Registration Forms */
-.shaped-form-extended {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto 20px;
-}
-
-.shaped-form {
-  position: relative;
-  max-width: 500px;
-  margin: 0 auto 20px;
-}
-
-.shaped-form-extended .terms {
-  font-size: 13px;
-}
-
-
-.shaped-form-extended h3 {
-  font-size: 24px;
-}
-
-.shaped-form-extended .form-group {
-  margin-bottom: 20px;
-}
-
 .customer-list{
-  background-color: blue;
+  background-image: linear-gradient(45deg, grey,rgb(255, 153, 0) );
+  text-shadow: 5px 2px 5px black;
   border: solid;
   border-radius: 5px;
+}
 
+.customer-item{
+  display:'flex';
+  justify-content:'space-between';
 }
