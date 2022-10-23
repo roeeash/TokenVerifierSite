@@ -81,9 +81,9 @@ class App extends React.Component{
 
     var text = encrypt.encrypt("hello");
     var decrypted = decrypt.decrypt(text);
-    var userDcrypted = userDecrypt.decrypt(text);
+    var userDecrypted = userDecrypt.decrypt(text);
     //if it is the user
-    if(decrypted !== userDcrypted){
+    if(decrypted !== userDecrypted){
       document.getElementById("userOutput").innerHTML = "Hacker Detected!";
     }
     else{
@@ -170,7 +170,7 @@ class App extends React.Component{
         <br/>
 
         <div>
-            <input type="text" id="customer-id" placeholder="customer id"  maxlength="10"
+            <input type="number" id="customer-id" placeholder="customer id"
              onChange={e => this.setState({customerId:e.target.value})}></input>
 
             <button className="btn" onClick={this.getCustomer}>
