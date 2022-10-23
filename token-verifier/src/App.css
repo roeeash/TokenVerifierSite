@@ -24,20 +24,22 @@ body {
   text-overflow: clip;
 }
 .form-box{
-  width: fit-content;
+  width: 500px;
   block-size: fit-content;
   overflow-wrap: break-word;
   position: relative;
-  background: rgba(0,0,0,0.8);
+  background: rgba(133, 132, 132, 0.8);
   margin:12% auto;
   padding: 50px 0;
   color:aliceblue;
   text-align: center;
   text-shadow: 1px 0.5px 1px rgba(239, 229, 229,0.5px);
-  box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px 2px rgba(55, 55, 55, 0.5);
 }
 
 .input-box{
+  display: flex;
+  justify-content: space-between;
   margin: 31px auto;
   width: 80%;
   border-bottom: 1px solid white;
@@ -54,24 +56,22 @@ body {
  
  }
 
- .btn {
-  width: 100px;
-  height: 40px;
-  text-decoration: none !important;
-  outline: none !important;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  font-size: vw;
+.btn {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background-color: #4e586c;
+  transition: .4s;
+  box-shadow: 0 5px 15px white;
 }
 
 .btn:hover{
-  color:grey;
-  box-shadow:inset 50px 0 0 0 0 rgb(255, 153, 0);
+  background: rgba(133, 132, 132, 0.8);
 }
-
 .particles {
   position: fixed;
   top: 0;
@@ -83,7 +83,7 @@ body {
 
 
 .customer-list{
-  background-image: linear-gradient(45deg, grey,rgb(255, 153, 0) );
+  background-color: #282c34;
   text-shadow: 5px 2px 5px black;
   border: solid;
   border-radius: 5px;

@@ -42,7 +42,7 @@ class App extends React.Component{
           PrivateKey:crypt.getPrivateKey()
       };
 
-      // PUBLIC  AND PRIVATE KEY SET, ALSO ADD HAS GENERATED KEYS
+      // PUBLIC  AND PRIVATE KEY SET, ALSO ADD HAS GENE
       this.setState({
         publicKey: PublicPrivateKey.PublicKey,
         privateKey:PublicPrivateKey.PrivateKey,
@@ -131,9 +131,11 @@ class App extends React.Component{
           
           <div>
           <h1>Key generation : </h1>
+          <div className='form-box'>
           <button  className="btn" onClick={this.generateKeys}> Generate keys! </button>
           <h2>Public key is: <div> {this.state.publicKey}</div></h2>
           <h2>Private key is: <div> {this.state.privateKey}</div></h2>
+          </div>
           </div>
 
         </div>
