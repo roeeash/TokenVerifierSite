@@ -16,6 +16,7 @@ Amplify.configure(awsconfig);
 const initialState = {
   isSignedIn: false,
   isValidated: false,
+  hasGeneratedKeys : false,
   publicKey:'',
   privateKey :'',
   customerId:'',
@@ -41,10 +42,11 @@ class App extends React.Component{
           PrivateKey:crypt.getPrivateKey()
       };
 
-      // PUBLIC  AND PRIVATE KEY
+      // PUBLIC  AND PRIVATE KEY SET, ALSO ADD HAS GENERATED KEYS
       this.setState({
         publicKey: PublicPrivateKey.PublicKey,
-        privateKey:PublicPrivateKey.PrivateKey
+        privateKey:PublicPrivateKey.PrivateKey,
+        hasGeneratedKeys: true
       });
 
     }
@@ -81,9 +83,9 @@ class App extends React.Component{
 
     var text = encrypt.encrypt("hello");
     var decrypted = decrypt.decrypt(text);
-    var userDecrypted = userDecrypt.decrypt(text);
+    var userDcrypted = userDecrypt.decrypt(text);
     //if it is the user
-    if(decrypted !== userDecrypted){
+    if(decrypted !== userDcrypted || !this.state.hasGeneratedKeys){
       document.getElementById("userOutput").innerHTML = "Hacker Detected!";
     }
     else{
@@ -170,7 +172,7 @@ class App extends React.Component{
         <br/>
 
         <div>
-            <input type="number" id="customer-id" placeholder="customer id"
+            <input type="text" id="customer-id" placeholder="customer id"  maxlength="10"
              onChange={e => this.setState({customerId:e.target.value})}></input>
 
             <button className="btn" onClick={this.getCustomer}>

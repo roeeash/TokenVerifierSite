@@ -1,12 +1,11 @@
-
-h1 {
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');h1 {
   color: white;
   position: center;
-  font-family: 'Ruda', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 h2 {
-  font-family: 'Ruda', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: vw;
 }
 
@@ -19,14 +18,15 @@ body {
   background-color: #282c34;
   color: white;
   padding: 40px;
-  font-family: Arial , sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
   text-shadow: 2px 1px 2px black;
   text-overflow: clip;
 }
 .form-box{
-  width: 380px;
-  height:400px;
+  width: fit-content;
+  block-size: fit-content;
+  overflow-wrap: break-word;
   position: relative;
   background: rgba(0,0,0,0.8);
   margin:12% auto;
@@ -55,6 +55,8 @@ body {
  }
 
  .btn {
+  width: 100px;
+  height: 40px;
   text-decoration: none !important;
   outline: none !important;
   -webkit-transition: all .3s ease-in-out;
@@ -62,6 +64,12 @@ body {
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  font-size: vw;
+}
+
+.btn:hover{
+  color:grey;
+  box-shadow:inset 50px 0 0 0 0 rgb(255, 153, 0);
 }
 
 .particles {
