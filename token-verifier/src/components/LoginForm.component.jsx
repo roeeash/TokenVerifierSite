@@ -41,14 +41,16 @@ class LoginForm extends React.Component{
 
             }
             }></input>
-            <div id="email-error">
+            </div>
+            <div className="w3-panel w3-red" id="email-error">
                 {
                     !this.state.isValidEmail && 
                     <span style={{display: (this.state.email !== "") ? 'block' : 'none',
                     color:"red"}}>Email is invalid!</span>
                 }
          </div>
-        </div>
+
+        
 
         <div class="input-box">
             <FaEye onClick={this.changePasswordType.bind(this)}/>

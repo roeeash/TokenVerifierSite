@@ -231,7 +231,7 @@ class App extends React.Component{
         <div  className="form-box">
         <div>
         <LoginForm/>
-        <button onClick={()=>{this.setState({isSignedIn:true})}}>
+        <button className='btn' onClick={()=>{this.setState({isSignedIn:true})}}>
           Login!
         </button>
         </div>
