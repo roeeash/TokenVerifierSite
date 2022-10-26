@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm.component';
-import { FaLock } from 'react-icons/fa';
 import { JSEncrypt } from "jsencrypt";
 import {Amplify,  API } from 'aws-amplify';
 import awsconfig from "./aws-exports";
@@ -116,7 +115,6 @@ class App extends React.Component{
         return(
         <div className= "main">
             <div className = "gradient-text">
-            <FaLock size={'70px'}/>
             <h1>Token Verifier</h1>
             </div>
 
@@ -132,7 +130,7 @@ class App extends React.Component{
           <div>
           <h1>Key generation : </h1>
           <div className='form-box'>
-          <button  className="btn" onClick={this.generateKeys}> Generate keys! </button>
+          <button  className="btn" onClick={this.generateKeys}> Generate keys </button>
           <h2>Public key is: <div> {this.state.publicKey}</div></h2>
           <h2>Private key is: <div> {this.state.privateKey}</div></h2>
           </div>
@@ -154,7 +152,7 @@ class App extends React.Component{
             <div className="input-box">
             <input type="text" id ="myOutput" placeholder="encrypted"></input>
             <button  className="btn" onClick={this.createDecryption}>
-            create Decryption
+            Create Decryption
             </button>
           </div>
           
@@ -162,13 +160,13 @@ class App extends React.Component{
           <div className="input-box">
           <input type="text" id ="myInput" placeholder="password"></input>
           <button className="btn" onClick={this.createEncryption}>
-          create Encryption
+          Create Encryption
           </button>
         </div>
 
         <div>
           <button className="btn" onClick={() =>window.open( 'https://crypto.com/') }>
-            Go to site!
+            Go to site
           </button>
         </div>
         <br/>
@@ -178,7 +176,7 @@ class App extends React.Component{
              onChange={e => this.setState({customerId:e.target.value})}></input>
 
             <button className="btn" onClick={this.getCustomer}>
-            Get Customer!
+            Get Customer
           </button>
         
           </div>
@@ -232,7 +230,7 @@ class App extends React.Component{
         <div>
         <LoginForm/>
         <button className='btn' onClick={()=>{this.setState({isSignedIn:true})}}>
-          Login!
+          Login
         </button>
         </div>
         </div>
