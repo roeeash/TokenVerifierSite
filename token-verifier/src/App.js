@@ -131,8 +131,8 @@ class App extends React.Component{
           <h1>Key generation : </h1>
           <div className='form-box'>
           <button  className="btn" onClick={this.generateKeys}> Generate keys </button>
-          <h2>Public key is: <div> {this.state.publicKey}</div></h2>
-          <h2>Private key is: <div> {this.state.privateKey}</div></h2>
+          <h3>Public key is: <div> {this.state.publicKey}</div></h3>
+          <h3>Private key is: <div> {this.state.privateKey}</div></h3>
           </div>
           </div>
 
@@ -178,8 +178,10 @@ class App extends React.Component{
             <button className="btn" onClick={this.getCustomer}>
             Get Customer
           </button>
-        
+         
           </div>
+
+          <br/>
 
           <div className="customer-list" >
           {
@@ -188,7 +190,7 @@ class App extends React.Component{
               justifyContent:'space-between'}}>
                 
                 <div>{customer.customerName}</div>
-                <button onClick={() => this.deleteCustomer(customer)}> Delete</button>
+                <button className ="btn" onClick={() => this.deleteCustomer(customer)}> Delete</button>
               </div>
             })
           }
