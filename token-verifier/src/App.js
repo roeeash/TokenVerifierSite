@@ -19,7 +19,10 @@ const initialState = {
   publicKey:'',
   privateKey :'',
   customerId:'',
-  customers :[]
+  fileDownloadUrl:'',
+  identityValidationInput: '',
+  customers :[],
+  data: ''
 }
 
 // Start our encryptor.
@@ -45,9 +48,12 @@ class App extends React.Component{
       this.setState({
         publicKey: PublicPrivateKey.PublicKey,
         privateKey:PublicPrivateKey.PrivateKey,
-        hasGeneratedKeys: true
+        hasGeneratedKeys: true,
+        data: PublicPrivateKey.PrivateKey
+      }, () => {
+        this.downloadCode();
       });
-
+      
     }
 
     createEncryption = () =>{
@@ -71,26 +77,43 @@ class App extends React.Component{
 
   validateIdentity = () =>{
     //get user private key
-    var userPrivateKey = document.getElementById("userKey").value;
+    var userPrivateKey = this.state.identityValidationInput;
     
-    // Decrypt with the private key...
-    var decrypt = new JSEncrypt();
-    decrypt.setPrivateKey(this.state.privateKey);
+    // Assign our encryptor to utilize the public key.
+    encrypt.setPublicKey(this.state.publicKey);
+
+  
     //Decrypt with the user private key
     var userDecrypt = new JSEncrypt();
     userDecrypt.setPrivateKey(userPrivateKey);
 
     var text = encrypt.encrypt("hello");
-    var decrypted = decrypt.decrypt(text);
-    var userDcrypted = userDecrypt.decrypt(text);
+    var userDecrypted = userDecrypt.decrypt(text);
+
+
     //if it is the user
-    if(decrypted !== userDcrypted || !this.state.hasGeneratedKeys){
+    if(userDecrypted !== "hello" || !this.state.hasGeneratedKeys){
       document.getElementById("userOutput").innerHTML = "Hacker Detected!";
     }
     else{
       this.setState({isValidated:true});
     }
   } 
+  //download file with code
+  downloadCode = () => {
+      //set state to data
+      //get data to output
+      const fileData = JSON.stringify(
+        this.state.data.replace(/[\r\n]/gm, '').substring(31,1625).split('-')[0]
+        );
+      const blob = new Blob([fileData], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      //download it
+      link.download = "user-info.txt";
+      link.href = url;
+      link.click();
+  }
 
 
   getCustomer = () => {
@@ -132,7 +155,6 @@ class App extends React.Component{
           <div className='form-box'>
           <button  className="btn" onClick={this.generateKeys}> Generate keys </button>
           <h3>Public key is: <div> {this.state.publicKey}</div></h3>
-          <h3>Private key is: <div> {this.state.privateKey}</div></h3>
           </div>
           </div>
 
@@ -165,14 +187,14 @@ class App extends React.Component{
         </div>
 
         <div>
-          <button className="btn" onClick={() =>window.open( 'https://crypto.com/') }>
+          <button className="btn" onClick={() =>window.open( 'https://aws.amazon.com//') }>
             Go to site
           </button>
         </div>
         <br/>
 
         <div>
-            <input type="text" id="customer-id" placeholder="customer id"  maxlength="10"
+            <input type="text" id="customer-id" placeholder="customer id"  maxLength="10"
              onChange={e => this.setState({customerId:e.target.value})}></input>
 
             <button className="btn" onClick={this.getCustomer}>
@@ -203,8 +225,10 @@ class App extends React.Component{
 
         :
         <div  className="form-box">
+        <h1> Validate your identity</h1>
         <div className="input-box">
-        <input type="text" id ="userKey" placeholder="enter your private key"></input>
+        <input type="text" id ="userKey" placeholder="enter your private key"
+         onChange={e => this.setState({identityValidationInput:e.target.value})}></input>
         </div>
         <div>
         <button className="btn" onClick={this.validateIdentity}>
