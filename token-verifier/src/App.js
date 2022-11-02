@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
 import LoginForm from './components/LoginForm.component';
+import AlertWarning from './components/AlertWarningcomponent';
 import { JSEncrypt } from "jsencrypt";
 import {Amplify,  API } from 'aws-amplify';
 import awsconfig from "./aws-exports";
@@ -226,6 +227,7 @@ class App extends React.Component{
         :
         <div  className="form-box">
         <h1> Validate your identity</h1>
+        <AlertWarning/>
         <div className="input-box">
         <input type="text" id ="userKey" placeholder="enter your private key"
          onChange={e => this.setState({identityValidationInput:e.target.value})}></input>
