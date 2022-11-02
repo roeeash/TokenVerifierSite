@@ -32,7 +32,7 @@ class LoginForm extends React.Component{
             placeholder="Email ID" id="email-field"
             onChange={e => 
             {
-                if(/\S+@\S+\.\S+/.test(e.target.value)){
+                if(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,4})+$/.test(e.target.value)){
                     this.setState({isValidEmail:true, email:e.target.value});
                 }
                 else{
