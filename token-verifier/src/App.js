@@ -95,7 +95,7 @@ class App extends React.Component{
 
     //if it is the user
     if(userDecrypted !== "hello" || !this.state.hasGeneratedKeys){
-      document.getElementById("userOutput").innerHTML = "Hacker Detected!";
+      document.getElementById("userOutput").innerHTML = "Permission Denied";
     }
     else{
       this.setState({isValidated:true});
