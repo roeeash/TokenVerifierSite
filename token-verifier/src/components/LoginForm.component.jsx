@@ -25,7 +25,8 @@ class LoginForm extends React.Component{
     render(){
 	return (
 		<div className='login'>
-            <h1>Hello, welcome to the login page</h1>
+            <h1>Login Page</h1>
+            <h2>Please enter your email and password</h2>
             <div className="input-box">
             <FaEnvelope/>
             <input type="email" spellCheck="false" 
