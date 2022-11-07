@@ -77,6 +77,16 @@ class App extends React.Component{
     document.getElementById("myInput").value = decrypted;
   }
 
+  makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
   validateIdentity = () =>{
     //get user private key
     var userPrivateKey = this.state.identityValidationInput;
@@ -88,13 +98,13 @@ class App extends React.Component{
     //Decrypt with the user private key
     var userDecrypt = new JSEncrypt();
     userDecrypt.setPrivateKey(userPrivateKey);
-
-    var text = encrypt.encrypt("hello");
+    //random string of length 5
+    var str = this.makeid(5);
+    var text = encrypt.encrypt(str);
     var userDecrypted = userDecrypt.decrypt(text);
 
-
     //if it is the user
-    if(userDecrypted !== "hello" || !this.state.hasGeneratedKeys){
+    if(userDecrypted !== str || !this.state.hasGeneratedKeys){
       document.getElementById("userOutput").innerHTML = "Permission Denied";
     }
     else{
